@@ -1,4 +1,6 @@
-let data = [5, 2, 15, 10, 25];
+d3.json('./data.json').then(data => {
+  console.log(data);
+});
 
 let svg = d3
   .select('#chart-are')
@@ -17,6 +19,10 @@ rectangles
   .attr('y', (d, i) => {
     return 0;
   })
-  .attr('width', 100)
-  .attr('height', 100)
+  .attr('width', d => {
+    return d;
+  })
+  .attr('height', d => {
+    return d;
+  })
   .attr('fill', 'green');
