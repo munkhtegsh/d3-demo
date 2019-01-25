@@ -1,5 +1,8 @@
 d3.json('./data.json').then(data => {
   console.log(data);
+  data.forEach(d => {
+    console.log(d.name);
+  });
 });
 
 let svg = d3
