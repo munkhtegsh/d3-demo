@@ -1,22 +1,37 @@
 [
   {
-    "name": "Burj Khalifa",
-    "height": "350"
+    "month": "January",
+    "revenue": "13432",
+    "profit": "8342"
   },
   {
-    "name": "Shanghai Tower",
-    "height": "263.34"
+    "month": "February",
+    "revenue": "19342",
+    "profit": "10342"
   },
   {
-    "name": "Abraj Al-Bait Clock Tower",
-    "height": "254.04"
+    "month": "March",
+    "revenue": "17443",
+    "profit": "15423"
   },
   {
-    "name": "Ping An Finance Centre",
-    "height": "253.20"
+    "month": "April",
+    "revenue": "26342",
+    "profit": "18432"
   },
   {
-    "name": "Lotte World Tower",
-    "height": "230.16"
+    "month": "May",
+    "revenue": "34213",
+    "profit": "29434"
+  },
+  {
+    "month": "June",
+    "revenue": "50321",
+    "profit": "45343"
+  },
+  {
+    "month": "July",
+    "revenue": "54273",
+    "profit": "47452"
   }
 ]
