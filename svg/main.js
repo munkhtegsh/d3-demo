@@ -21,7 +21,7 @@ d3.json('./data.json').then(res => {
   // Scale y-axis
   let y = d3
     .scaleLinear() // fn scales graph to fit in height of the svg
-    .domain([0, 54000]) // input
+    .domain([0, d3.max(res, d => d.revenue)]) // input
     .range([0, 300]); // output
 
   // Scale x-axis
@@ -29,7 +29,6 @@ d3.json('./data.json').then(res => {
     .scaleBand() // fn scales graph to fit in width of the svg
     .domain(
       res.map(d => {
-        console.log(d);
         return d.month; // inserting name of the bars
       }),
     )
