@@ -27,7 +27,12 @@ d3.json('./data.json').then(res => {
   // Scale x-axis
   let x = d3
     .scaleBand() // fn scales graph to fit in width of the svg
-    .domain(res.map(d => d.revenue))
+    .domain(
+      res.map(d => {
+        console.log(d);
+        return d.month; // inserting name of the bars
+      }),
+    )
     .range([0, width])
     .paddingInner(0.3)
     .paddingOuter(0.3);
@@ -51,7 +56,7 @@ d3.json('./data.json').then(res => {
       // y-axys starting point
       return y(d.revenue);
     })
-    .attr('width', 10) // width of each bars
+    .attr('width', x.bandwidth) // width of each bars
     .attr('height', d => d.revenue) // height of each bars
     .attr('fill', 'brown');
 });
