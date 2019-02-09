@@ -12,24 +12,24 @@ let g = d3
   .append('g')
   .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
 
-// // X-Labe
-// g.append('text')
-//   .attr('class', 'x axis-label')
-//   .attr('x', width / 2)
-//   .attr('y', height + 140)
-//   .attr('font-size', '20px')
-//   .attr('text-anchor', 'middle')
-//   .text('Tallest buildings');
+// X-Label
+g.append('text')
+  .attr('class', 'x axis-label')
+  .attr('x', width / 2)
+  // .attr('y', height + 140)
+  .attr('font-size', '20px')
+  .attr('text-anchor', 'middle')
+  .text('Tallest buildings');
 
-// // Y Label
-// g.append('text')
-//   .attr('class', 'y axis-label')
-//   .attr('x', -(height / 2))
-//   .attr('y', -60)
-//   .attr('font-size', '20px')
-//   .attr('text-anchor', 'middle')
-//   .attr('transform', 'rotate(-90)')
-//   .text('Height (m)');
+// Y Label
+g.append('text')
+  .attr('class', 'y axis-label')
+  .attr('x', -(height / 2))
+  .attr('y', -60)
+  .attr('font-size', '20px')
+  .attr('text-anchor', 'middle')
+  .attr('transform', 'rotate(-90)')
+  .text('Height (m)');
 
 // fetching data
 d3.json('./data.json').then(res => {
@@ -59,12 +59,12 @@ d3.json('./data.json').then(res => {
   g.append('g')
     .attr('class', 'x axis')
     .attr('transform', 'translate(0, ' + height + ')')
-    .call(xAxisCall);
-  // .selectAll('text');
-  // .attr('y', '10')
-  // .attr('x', '-5')
-  // .attr('text-anchor', 'end')
-  // .attr('transform', 'rotate(-40)');
+    .call(xAxisCall)
+    .selectAll('text') // alligning month names to -40 gradus
+    .attr('y', '10')
+    .attr('x', '-5')
+    .attr('text-anchor', 'end')
+    .attr('transform', 'rotate(-40)');
 
   let yAxisCall = d3.axisLeft(y);
   g.append('g')
@@ -92,9 +92,9 @@ d3.json('./data.json').then(res => {
     })
     .attr('y', function(d, i) {
       // y-axys starting point
-      return y(d.revenue);
+      return y(d.revenue); // shifting bars to x-axys
     })
     .attr('width', x.bandwidth) // width of each bars
     .attr('height', d => height - y(d.revenue)) // height of each bars
-    .attr('fill', 'brown');
+    .attr('fill', 'green');
 });
